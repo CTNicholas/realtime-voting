@@ -20,7 +20,7 @@ export function CollaborativeVote({ voteName }: { voteName: string }) {
 
   return (
     <div>
-      <div>There are {others.length} other people currently voting.</div>
+      <h1>{voteName}</h1>
       <div>
         {voteOptions.map((option, index) => (
           <div key={index}>
@@ -30,6 +30,7 @@ export function CollaborativeVote({ voteName }: { voteName: string }) {
           </div>
         ))}
       </div>
+      <div>There are {others.length} other people currently voting.</div>
     </div>
   );
 }
