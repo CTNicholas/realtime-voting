@@ -70,7 +70,7 @@ export default function Home() {
       return;
     }
 
-    redirect(`/room/${id}`);
+    redirect(`/vote/${id}`);
   }
   return (
     <form action={handleSubmit}>

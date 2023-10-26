@@ -1,4 +1,4 @@
-import Room from "@/app/room/[roomId]/Room";
+import Room from "@/app/vote/[roomId]/Room";
 import { CollaborativeVote } from "@/components/CollaborativeVote";
 
 export default async function Page({ params }: any) {
