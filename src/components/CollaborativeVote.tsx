@@ -31,18 +31,13 @@ export function CollaborativeVote({ voteName }: { voteName: string }) {
 
   return (
     <div className="bg-black text-gray-400 absolute inset-0 flex items-center justify-center">
-      <div className="absolute top-12 w-72">
+      <div className="absolute top-12 w-full max-w-[450px]">
         <Logo />
       </div>
       <div className="mx-auto max-w-[600px] w-full">
-        <h1>{voteName}</h1>
-        <div className="mx-auto text-center mb-10 flex justify-center items-center gap-3 text-gray-100">
-          <div className="relative flex justify-center items-center">
-            <div className="absolute inline-flex h-3 w-3 rounded-full bg-green-400 opacity-75 animate-ping " />
-            <div className="rounded-full h-3 w-3 bg-green-500" />
-          </div>
-          <div>{others.length + 1} live on this site</div>
-        </div>
+        <h1 className="text-center text-2xl text-gray-100 font-semibold mb-8">
+          {voteName}
+        </h1>
         <div className="border-l border-gray-500 py-4 flex flex-col gap-1 translate-x-1/3">
           {voteOptions.map((option, index) => {
             const highest = index === highestIndex;
@@ -59,7 +54,7 @@ export function CollaborativeVote({ voteName }: { voteName: string }) {
                   {option.name}
                 </div>
                 <div
-                  className="border border-l-0 border-gray-700 rounded-r-xl relative h-12 flex items-center"
+                  className="border border-l-0 border-gray-700 rounded-r-xl relative h-12 flex items-center max-w-[69%] transition-all"
                   style={{
                     width: `${(option.count / totalCount) * 100}%`,
                     background: highest ? "white" : undefined,
@@ -86,6 +81,13 @@ export function CollaborativeVote({ voteName }: { voteName: string }) {
               {option.name}
             </button>
           ))}
+        </div>
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 mx-auto text-center mt-10 flex justify-center items-center gap-3 text-gray-100">
+          <div className="relative flex justify-center items-center">
+            <div className="absolute inline-flex h-3 w-3 rounded-full bg-green-400 opacity-75 animate-ping " />
+            <div className="rounded-full h-3 w-3 bg-green-500" />
+          </div>
+          <div>{others.length + 1} live on this site</div>
         </div>
       </div>
     </div>

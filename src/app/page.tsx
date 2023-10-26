@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { redirect } from "next/navigation";
+import { Logo } from "@/components/Logo";
 
 export default function Home() {
   // Create a room manually so we can attach the name of the vote to it
@@ -73,10 +74,42 @@ export default function Home() {
     redirect(`/vote/${id}`);
   }
   return (
-    <form action={handleSubmit}>
-      Name of vote: <input name="vote-name" type="text" />
-      Comma separated vote options: <input name="vote-options" type="text" />
-      <button>Create new vote</button>
-    </form>
+    <div className="bg-black text-gray-400 absolute inset-0 flex items-center justify-center">
+      <div className="absolute top-12 w-full max-w-[450px]">
+        <Logo />
+      </div>
+      <div className="mx-auto max-w-[300px] w-full">
+        <form action={handleSubmit} className="flex flex-col gap-6">
+          <div>
+            <label className="block mb-1.5 text-gray-400" htmlFor="vote-name">
+              Vote name{" "}
+            </label>
+            <input
+              className="bg-gray-700 text-white px-3 py-2 rounded-lg w-full"
+              name="vote-name"
+              id="vote-name"
+              type="text"
+            />
+          </div>
+          <div>
+            <label
+              className="block mb-1.5 text-gray-400"
+              htmlFor="vote-options"
+            >
+              Comma separated vote options{" "}
+            </label>
+            <input
+              className="bg-gray-700 text-white px-3 py-2 rounded-lg w-full"
+              name="vote-options"
+              type="text"
+              placeholder="Apple,Banana,Cherry"
+            />
+          </div>
+          <button className="bg-white text-black px-3 py-2 rounded-lg">
+            Create new vote
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
